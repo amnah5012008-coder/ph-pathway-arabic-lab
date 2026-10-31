@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FinalRouteImport } from './routes/final'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as ChapterIdRouteImport } from './routes/chapter.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FinalRoute = FinalRouteImport.update({
+  id: '/final',
+  path: '/final',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChapterIdRoute = ChapterIdRouteImport.update({
+  id: '/chapter/$id',
+  path: '/chapter/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/final': typeof FinalRoute
+  '/team': typeof TeamRoute
+  '/chapter/$id': typeof ChapterIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/final': typeof FinalRoute
+  '/team': typeof TeamRoute
+  '/chapter/$id': typeof ChapterIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/final': typeof FinalRoute
+  '/team': typeof TeamRoute
+  '/chapter/$id': typeof ChapterIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/final' | '/team' | '/chapter/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/final' | '/team' | '/chapter/$id'
+  id: '__root__' | '/' | '/final' | '/team' | '/chapter/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FinalRoute: typeof FinalRoute
+  TeamRoute: typeof TeamRoute
+  ChapterIdRoute: typeof ChapterIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/final': {
+      id: '/final'
+      path: '/final'
+      fullPath: '/final'
+      preLoaderRoute: typeof FinalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chapter/$id': {
+      id: '/chapter/$id'
+      path: '/chapter/$id'
+      fullPath: '/chapter/$id'
+      preLoaderRoute: typeof ChapterIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FinalRoute: FinalRoute,
+  TeamRoute: TeamRoute,
+  ChapterIdRoute: ChapterIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
