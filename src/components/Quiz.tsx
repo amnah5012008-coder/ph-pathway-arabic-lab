@@ -33,10 +33,7 @@ export function Quiz({ questions, title }: { questions: Question[]; title: strin
                 <span className="font-bold" style={{ color: "var(--accent)" }}>
                   السؤال {i + 1}
                 </span>
-                {q.source === "review" && (
-                  <span className="review-flag rounded-full px-2.5 py-0.5 text-xs">
-                    ⚠ مُعدّ من ملخص الدرس — يحتاج مراجعة المعلمة
-                  </span>
+        
                 )}
               </div>
               <h4 className="mb-4 font-bold leading-relaxed text-foreground">{q.text}</h4>
