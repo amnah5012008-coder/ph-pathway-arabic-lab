@@ -8,7 +8,7 @@ export type Question = {
   text: string;
   choices: [string, string, string, string];
   correct: 0 | 1 | 2 | 3;
-  explanation?: string;
+  explanation?: string | undefined;
   source: "canva" | "review";
   /** Original question number shown in Canva, when present */
   canvaNumber?: string;
