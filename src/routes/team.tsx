@@ -10,6 +10,8 @@ export const Route = createFileRoute("/team")({
       { name: "description", content: "فريق إعداد موقع الأحماض والقواعد التعليمي." },
       { property: "og:title", content: "أسماء الطالبات | الأحماض والقواعد" },
       { property: "og:description", content: "فريق إعداد موقع الأحماض والقواعد التعليمي." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TeamPage,

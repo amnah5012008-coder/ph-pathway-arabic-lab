@@ -9,6 +9,8 @@ export const Route = createFileRoute("/final")({
       { name: "description", content: "اختبار نهائي تفاعلي بأسئلة جديدة يغطي الفصول الأربعة في الأحماض والقواعد." },
       { property: "og:title", content: "الاختبار النهائي الشامل | الأحماض والقواعد" },
       { property: "og:description", content: "أسئلة جديدة تغطي الفصول الأربعة مع التصحيح الفوري." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: FinalPage,
