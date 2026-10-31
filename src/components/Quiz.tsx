@@ -33,8 +33,6 @@ export function Quiz({ questions, title }: { questions: Question[]; title: strin
                 <span className="font-bold" style={{ color: "var(--accent)" }}>
                   السؤال {i + 1}
                 </span>
-        
-                )}
               </div>
               <h4 className="mb-4 font-bold leading-relaxed text-foreground">{q.text}</h4>
               <div className="grid gap-2">
