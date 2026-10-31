@@ -46,7 +46,7 @@ function ChapterPage() {
         <h1 className="text-2xl font-extrabold" style={{ color: chapter.accent }}>
           {chapter.code} {chapter.title}
         </h1>
-        <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lessonHtml[chapter.id] }} />
+        <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lessonHtml[chapter.id] ?? "" }} />
         <Quiz questions={chapter.questions} title="أسئلة التحصيلي لهذا الدرس" />
       </article>
 
