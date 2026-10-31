@@ -15,7 +15,7 @@ describe("course rules", () => {
     expect(students).toEqual(["آمنه الحارثي", "الين القحطاني", "لمار الزهراني", "رنيم عاصم", "وايلان ياسر"]);
   });
   it("scores only correct answers", () => {
-    const qs = chapters[0].questions;
-    expect(scoreAnswers(qs, { [qs[0].id]: 1, [qs[1].id]: 0 })).toBe(1);
+    const qs = chapters[0]!.questions;
+    expect(scoreAnswers(qs, { [qs[0]!.id]: 1, [qs[1]!.id]: 0 })).toBe(1);
   });
 });
