@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Lesson summaries are original Canva HTML in src/content/lesson-N.html (rendered raw) and questions live in src/data/course.ts with a source flag; keeps Canva content verbatim and reviewable.
