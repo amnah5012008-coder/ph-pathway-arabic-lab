@@ -1,0 +1,4 @@
+- [x] Complete Chapter 1 from supplied source facts without changing the design.
+- [x] Complete Chapter 2 from supplied source facts without adding questions.
+- [x] Mark Chapters 3 and 4 awaiting sources while retaining their existing drafts and tests.
+- [x] Verify lesson pages, quiz scaffolding, pH scale, and existing course rules.

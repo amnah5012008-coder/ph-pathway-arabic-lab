@@ -3,6 +3,12 @@ import { chapters, finalExam, students } from "@/data/course";
 import { scoreAnswers } from "@/components/Quiz";
 
 describe("course rules", () => {
+  it("uses provided summaries for Chapters 1 and 2", () => {
+    expect(chapters.filter((c) => c.summarySource === "provided").map((c) => c.id)).toEqual(["1", "2"]);
+  });
+  it("keeps Chapters 3 and 4 awaiting source material", () => {
+    expect(chapters.filter((c) => c.summarySource === "awaiting").map((c) => c.id)).toEqual(["3", "4"]);
+  });
   it("has four chapters with 10 questions each", () => {
     expect(chapters).toHaveLength(4);
     chapters.forEach((c) => expect(c.questions).toHaveLength(10));
@@ -15,7 +21,10 @@ describe("course rules", () => {
     expect(students).toEqual(["آمنه الحارثي", "الين القحطاني", "لمار الزهراني", "رنيم عاصم", "وايلان ياسر"]);
   });
   it("scores only correct answers", () => {
-    const qs = chapters[0]!.questions;
-    expect(scoreAnswers(qs, { [qs[0]!.id]: 1, [qs[1]!.id]: 0 })).toBe(1);
+    const qs = chapters[0]?.questions;
+    const first = qs?.[0];
+    const second = qs?.[1];
+    if (!qs || !first || !second) throw new Error("Missing chapter questions");
+    expect(scoreAnswers(qs, { [first.id]: 1, [second.id]: 0 })).toBe(1);
   });
 });

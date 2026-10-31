@@ -19,6 +19,7 @@ export type Chapter = {
   code: string;
   title: string;
   accent: string;
+  summarySource: "provided" | "awaiting";
   questions: Question[];
 };
 
@@ -33,6 +34,7 @@ const q = (
 export const chapters: Chapter[] = [
   {
     id: "1",
+    summarySource: "provided",
     code: "٢–١",
     title: "مقدمة في الأحماض والقواعد",
     accent: "#55e6df",
@@ -80,6 +82,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "2",
+    summarySource: "provided",
     code: "٢–٢",
     title: "قوة الأحماض والقواعد",
     accent: "#f0b866",
@@ -105,6 +108,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "3",
+    summarySource: "awaiting",
     code: "٢–٣",
     title: "أيونات الهيدروجين والرقم الهيدروجيني",
     accent: "#a9e779",
@@ -130,6 +134,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "4",
+    summarySource: "awaiting",
     code: "٢–٤",
     title: "تفاعلات التعادل",
     accent: "#b6a0ff",

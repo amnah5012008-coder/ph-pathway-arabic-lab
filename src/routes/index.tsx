@@ -11,6 +11,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "مقياس pH تفاعلي وملخصات وخرائط ذهنية واختبارات للفصول الأربعة." },
       { property: "og:image", content: HERO_IMAGE },
       { name: "twitter:image", content: HERO_IMAGE },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,

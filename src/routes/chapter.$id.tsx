@@ -23,6 +23,8 @@ export const Route = createFileRoute("/chapter/$id")({
         { name: "description", content: d },
         { property: "og:title", content: t },
         { property: "og:description", content: d },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
         ...(loaderData ? [] : [{ name: "robots", content: "noindex" }]),
       ],
     };
@@ -46,6 +48,11 @@ function ChapterPage() {
         <h1 className="text-2xl font-extrabold" style={{ color: chapter.accent }}>
           {chapter.code} {chapter.title}
         </h1>
+        {chapter.summarySource === "awaiting" && (
+          <p role="status" className="review-flag mt-5 rounded-lg px-4 py-3 font-bold">
+            بانتظار المادة المصدرية — الملخص الحالي مسودة غير معتمدة، ويحتاج مراجعة المعلمة.
+          </p>
+        )}
         <div className="lesson-content" dangerouslySetInnerHTML={{ __html: lessonHtml[chapter.id] ?? "" }} />
         <Quiz questions={chapter.questions} title="أسئلة التحصيلي لهذا الدرس" />
       </article>
